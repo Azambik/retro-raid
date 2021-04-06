@@ -24,6 +24,10 @@ const productSchema = new Schema ({
         type: Number,
         min: 0.00
     },
+    shippingMethod: {
+        type: String,
+        required: true
+    },
     quantity: {
         type: Number,
         min:0,

@@ -31,8 +31,8 @@ const userSchema = new Schema({
         Required: true,
         minlength:5
     },
-    //place post topic and order schema here once created. 
-})
+    orders: [ order.schema]
+});
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
