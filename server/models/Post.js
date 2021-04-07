@@ -1,5 +1,6 @@
 const {Schema, model } = require('mongoose');
-const replySchema = require('./Reply');
+//.schema is used to export a schema to another 
+const replySchema = require('./Reply').schema;
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
