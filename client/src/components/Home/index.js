@@ -2,6 +2,7 @@ import React from 'react';
 //react-bootstrap added on this branch to auto style some elements
 //import Image from 'react-bootstrap/Image'
 //import RRLogo for jumbotron
+import {Container, Row, Col, Image } from 'react-bootstrap';
 
 function Home() {
     //1st row is title; 2nd row is about; 3rd row is loading posts...
