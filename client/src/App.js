@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header'
 import Footer from './components/Footer' 
+import Home from './components/Home';
+//import Forum from './components/Forum';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Help from './components/Help';
 import './App.css';
+//import { StoreProvider } from './utils/GlobalState';
 
 function App() {
   const [loginSelected, setLoginSelected] = useState(false);
@@ -19,8 +25,8 @@ function App() {
     switch(currentPage) {
       case 'Home':
         return <Home />;
-      case 'Forum':
-        return <Forum />;
+      //case 'Forum':
+        //return <Forum />;
       case 'New Character':
         return <Signup />;
       case 'Sign In':

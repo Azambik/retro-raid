@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
 /*Thought process here is that the Forum would be set up similar 
 to the switch case of the Header page and allow us to switch topics?*/
-function Forum({ currentTopic, setCurrentTopic }) {
+function Forum() {
     const topics = [
         'Introduction',
         'Console',
@@ -51,3 +51,4 @@ function Forum({ currentTopic, setCurrentTopic }) {
     )
 
 }
+export default Forum;
