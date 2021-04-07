@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const replySchema = new Schema(
     {
-        postText: {
+        replyText: {
             type: String,
             required: 'You need to enter post text!',
             minlength: 1,

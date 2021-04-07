@@ -3,7 +3,7 @@ const { User, Forum, Post, Reply, Product, Orders  } = require('../models');
 
 db.once('open', async () => {
 
-    await Product.deleteMany();
+    /*await Product.deleteMany();
 
   const products = await Product.insertMany([
     {
@@ -31,7 +31,7 @@ db.once('open', async () => {
   
       },
   ]);
-    await User.deleteMany();
+    await User.deleteMany();*/
 
     await User.create({
         firstName: 'Andrew',

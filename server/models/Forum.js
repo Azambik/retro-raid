@@ -1,5 +1,5 @@
 const { Schema, model} = require('mongoose');
-const subforumSchema = require('./SubForum');     
+const subforumSchema = require('./SubForum').schema;     
 const dateFormat = require('../utils/dateFormat');
 
 const forumSchema = new Schema(
