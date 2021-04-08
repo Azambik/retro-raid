@@ -10,12 +10,12 @@ const forumSchema = new Schema(
         minlength: 1,
         maxlength: 64
     },
-    createdAt:{
-        type: Date,
-        Default: Date.now,
-        get: timestamp => dateFormat(timestamp)
-    },
-    subforum: [subforumSchema]
+    subforum: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Subforu'
+    }
+    ]
 },
 {
     toJSON: {
