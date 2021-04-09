@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-//import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
-//import { ADD_USER } from '../utils/mutations';
-//import Auth from '../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const Signup = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  //const [addUser] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -19,7 +19,7 @@ const Signup = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
   
-/* commented out until we can add authorization
+// commented out until we can add authorization
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ const Signup = () => {
       email: '',
       password: '',
     });
-  };*/
+  };
 
   return (
     <>

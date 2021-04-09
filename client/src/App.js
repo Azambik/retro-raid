@@ -7,16 +7,30 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Help from './components/Help';
 import './App.css';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 //import { StoreProvider } from './utils/GlobalState';
 
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authortization: token ? `BEarer ${token}` : ''
+      }
+    });
+  },
+  uri: '/graphql'
+})
+
 function App() {
-  const [loginSelected, setLoginSelected] = useState(false);
   const [pages] = useState([
       {name: 'Home'},
       {name: 'Forum'},
       {name: 'New Character'},
       {name: 'Sign In'},
-      {name: 'Help me!'}
+      {name: 'Help!'}
   ]);
 
   const [currentPage, setCurrentPage] = useState('About');
@@ -31,22 +45,26 @@ function App() {
         return <Signup />;
       case 'Sign In':
         return <Login />  
-      case 'Help me!':
-        return <Help />;    
+      case 'Help!':
+        return <Help />;
+      default:
+        return <Home />;      
     }
   }
   return (
-    <div>
-      <Header
-        pages={pages}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
-      <main>
-        { renderPage(currentPage) }
-      </main>
-      <Footer/>    
-    </div>
+    <ApolloProvider client={client}>
+      <div>
+        <Header
+          pages={pages}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+        <main>
+          { renderPage(currentPage) }
+        </main>
+        <Footer/>    
+      </div>
+    </ApolloProvider>  
   );
 }
 

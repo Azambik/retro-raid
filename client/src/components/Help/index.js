@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
-/*Add in utils folder later
-import { validateEmail } from '../../utils/helpers';*/
+//Add in utils folder later
+import { validateEmail } from '../../utils/helpers';
 /* Select a font with group to match theme
 import '../../fonts/NewTegomin-Regular.ttf';*/
 

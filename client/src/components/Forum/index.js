@@ -1,54 +1,42 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import { Link } from 'react-router-dom';
 
-/*Thought process here is that the Forum would be set up similar 
-to the switch case of the Header page and allow us to switch topics?*/
-function Forum() {
-    const topics = [
-        'Introduction',
-        'Console',
-        'Games',
-        'Classifieds',
-        'Game Journal'
-    ];
-
-    const [currentTopic, setCurrentTopic] = useState('Introduction');
-
-    //Not sure if this is the way to do it, would need to then add these components
-    const renderTopic = () => {
-      switch(currentTopic) {
-        case 'Introduction':
-          return <Introduction />;
-        case 'Console':
-          return <Console />;
-        case 'Games':
-          return <Games />;
-        case 'Classifieds':
-          return <Classifieds />  
-        case 'Game Journal':
-          return <GameJournal />;    
-      }
-    }
-
-    useEffect(() => {
-        document.title = currentTopic;
-    }, [currentTopic]);
-
-    return (
+const Forum = ({ topics, title }) => {
+  if (!topics.length) {
+   return <h3>Not a lot going on here...</h3>;
+  } 
+  
+  return (
         <Container>
             <Row>
-                { topics.map( link =>(
-                    <div className={`${currentTopic === link && 'navActive'}`} key={link}>
-                        <span onClick={() => setCurrentTopic(link)} ></span>
+              <h3>{title}</h3>
+                { topics.map( topic => (
+                    <div key={topic._id} className="card mb-3">
+                        <p className="card-header">
+                          <Link
+                            to={`/profile/${topic.username}`}
+                            style={{ fontWeight: 700 }}
+                            className="text-light"
+                          >
+                            {topic.username}
+                          </Link>{' '}
+                          dungeon entered at {topic.createdAt}    
+                        </p>
+                        <div className="card-body">
+                          <Link to={`/topic/${topic._id}`}>
+                            <p>{topic.topicText}</p>
+                            <p className="mb-0">
+                              Posts: {topic.postCount} || Click to{' '}
+                              {topic.postCount ? 'see' : 'start'} the raid!
+                            </p>
+                          </Link>
+                        </div>
                     </div>
                 ))}
             </Row>
-            <Row>
-            { renderTopic(currentTopic) }
-            </Row>
         </Container>
-    )
-
-}
+    );
+};
 export default Forum;
