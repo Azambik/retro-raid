@@ -13,7 +13,7 @@ const forumSchema = new Schema(
     subforum: [
     {
         type: Schema.Types.ObjectId,
-        ref: 'Subforu'
+        ref: 'Subforum'
     }
     ]
 },

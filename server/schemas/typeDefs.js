@@ -14,7 +14,12 @@ type Query {
   user(username: String!): User
   
 }
+
+type Mutation {
+  addUser(firstName: String!, lastName: String!, userName: String!, email: String!): User
+}
 `;
+
 
 module.exports = typeDefs
 //the rest of the forum elements need ways to load the data and query it. 

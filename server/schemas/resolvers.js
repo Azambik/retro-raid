@@ -19,6 +19,11 @@ const resolvers ={
             .populate('Reply');
         },
     },
+    Mutation: {
+        addUser: async (parent, args) => {
+            return User.create(args)
+        }
+    }
 };
 
 module.exports = resolvers;
