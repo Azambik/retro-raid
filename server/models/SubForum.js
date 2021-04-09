@@ -4,9 +4,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const subforumSchema = new Schema(
     {
-    category:{
-            //catagory number will be used to decide wether a post belongs to one forum or another.
-            type: Number
+        subformid: {
+            type: Schema.Types.ObjectId,
+            //give the ability to query through 
+            default: () => new Types.ObjectId()
         },
     name: {
         type: String,
@@ -19,12 +20,7 @@ const subforumSchema = new Schema(
         Default: Date.now,
         get: timestamp => dateFormat(timestamp)
     },
-    post: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Post'
-        }
-    ]
+    post: [ postSchema ]
 },
 {
     createdBy:{
