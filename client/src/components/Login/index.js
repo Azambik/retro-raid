@@ -8,7 +8,7 @@ import Auth from '../../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
+  const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [login] = useMutation(LOGIN_USER);
 
@@ -20,6 +20,7 @@ const LoginForm = () => {
   // Commented out until authorization is up and running--check if form has everything (as per react-bootstrap docs)
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    setValidated(true);
 
     
     const form = event.currentTarget;
@@ -52,7 +53,7 @@ const LoginForm = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Character not found!
         </Alert>
-        <Form.Group>
+        <Form.Group controlId="validationEmail">
           <Form.Label htmlFor='email'>Your Email</Form.Label>
           <Form.Control
             type='text'

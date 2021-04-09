@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-//import RRLogo from 'assets' 
 
+//import RRLogo from 'assets' 
 function Header({ currentPage, setCurrentPage }) {
     const pages = [
         'Home',
@@ -16,16 +17,16 @@ function Header({ currentPage, setCurrentPage }) {
     }, [currentPage]);
 
   return (
-    <div className="flex-row px-1">
-        <h2>RETRO RAID</h2>
-        <Nav className="flex-row px-5" /*style={{ backgroundImage: `url(${ Banner })`}}*/>
-            { pages.map( link =>(
-                <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
-                    <span onClick={() => setCurrentPage(link)} >{link}</span>
-                </Nav.Link>
-            ))}
-        </Nav>
-    </div>    
+        <Navbar bg="dark" variant="dark" fluid>
+            <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
+            <Nav className="mr-auto">
+                { pages.map( link =>(
+                    <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
+                        <span onClick={() => setCurrentPage(link)} >{link}</span>
+                    </Nav.Link>
+                ))}
+            </Nav>
+        </Navbar>       
   );
 }
 
