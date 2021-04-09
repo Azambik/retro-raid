@@ -5,6 +5,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
     {
+        category:{
+            //catagory number will be used to decide wether a post belongs to one forum or another.
+            type: Number
+        },
         postText: {
             type: String,
             required: 'You need to enter post text!',
@@ -20,7 +24,12 @@ const postSchema = new Schema(
             type: String,
             required: true
         },
-        reply: [replySchema]
+        reply: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'reply'
+            }
+        ]
     },
     {
         toJson: {

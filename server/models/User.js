@@ -31,8 +31,15 @@ const userSchema = new Schema({
         type: String,
         Required: true,
         minlength:5
+    },
+    post: {
+        type: Schema.Types.ObjectId,
+        ref: 'Post'
+    },
+    reply: {
+        type: Schema.Types.ObjectId,
+        ref: 'Reply'
     }
-   // orders: [ Order.schema]
 });
 
 // set up pre-save middleware to create password
