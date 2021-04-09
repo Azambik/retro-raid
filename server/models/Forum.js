@@ -10,12 +10,7 @@ const forumSchema = new Schema(
         minlength: 1,
         maxlength: 64
     },
-    subforum: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Subforum'
-    }
-    ]
+    subforum: [ subforumSchema ]
 },
 {
     toJSON: {
