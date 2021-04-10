@@ -17,7 +17,7 @@ function Header({ currentPage, setCurrentPage }) {
     }, [currentPage]);
 
   return (
-        <Navbar bg="dark" variant="dark" fluid>
+        <Navbar bg="dark" variant="dark" >
             <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
             <Nav className="mr-auto">
                 { pages.map( link =>(
