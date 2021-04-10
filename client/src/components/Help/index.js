@@ -11,7 +11,7 @@ function Help() {
   const [errorMessage, setErrorMessage] = useState('');
   const { name, email, message } = formState;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!errorMessage) {
       console.log('Submit Form', formState);

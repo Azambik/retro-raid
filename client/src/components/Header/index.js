@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-
 //import RRLogo from 'assets' 
+
 function Header({ currentPage, setCurrentPage }) {
     const pages = [
         'Home',

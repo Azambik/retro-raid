@@ -18,8 +18,7 @@ const Signup = () => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
-  
-// commented out until we can add authorization
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
