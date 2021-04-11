@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 //import RRLogo from 'assets' 
 
@@ -6,7 +7,8 @@ function Header({ currentPage, setCurrentPage }) {
     const pages = [
         'Home',
         'Forum',
-        'New Character/Sign In',
+        'New Character',
+        'Sign In',
         'Help!'
     ];
     
@@ -15,16 +17,16 @@ function Header({ currentPage, setCurrentPage }) {
     }, [currentPage]);
 
   return (
-    <div className="flex-row px-1">
-        <h2>RETRO RAIDERS</h2>
-        <Nav className="flex-row px-5" /*style={{ backgroundImage: `url(${ Banner })`}}*/>
-            { pages.map( link =>(
-                <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
-                    <span onClick={() => setCurrentPage(link)} >{link}</span>
-                </Nav.Link>
-            ))}
-        </Nav>
-    </div>    
+        <Navbar bg="dark" variant="dark" >
+            <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
+            <Nav className="mr-auto p-3">
+                { pages.map( link =>(
+                    <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
+                        <span onClick={() => setCurrentPage(link)} >{link}</span>
+                    </Nav.Link>
+                ))}
+            </Nav>
+        </Navbar>       
   );
 }
 

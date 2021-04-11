@@ -5,6 +5,11 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
     {
+        postid:{
+            type: Schema.Types.ObjectId,
+            //give the ability to query through 
+            default: () => new Types.ObjectId()
+        },
         postText: {
             type: String,
             required: 'You need to enter post text!',

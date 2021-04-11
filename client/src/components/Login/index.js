@@ -1,32 +1,31 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-//import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
-//import { LOGIN_USER } from '../utils/mutations';
-//import Auth from '../utils/auth';
+import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
+  const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+  const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  //const [login] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  /* Commented out until authorization is up and running--check if form has everything (as per react-bootstrap docs)
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+
+    setValidated(true);
 
     try {
       const { data } = await login({
@@ -41,10 +40,9 @@ const LoginForm = () => {
 
     setUserFormData({
       username: '',
-      email: '',
       password: '',
     });
-  };*/
+  };
 
   return (
     <>
@@ -53,16 +51,16 @@ const LoginForm = () => {
           Character not found!
         </Alert>
         <Form.Group>
-          <Form.Label htmlFor='email'>Your Email</Form.Label>
+          <Form.Label htmlFor='username'>Your Character</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your email'
-            name='email'
+            placeholder='Your Character'
+            name='username'
             onChange={handleInputChange}
-            value={userFormData.email}
+            value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required, hero!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>That's not a real hero!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>

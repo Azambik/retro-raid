@@ -4,6 +4,11 @@ const dateFormat = require('../utils/dateFormat');
 
 const subforumSchema = new Schema(
     {
+        subformid: {
+            type: Schema.Types.ObjectId,
+            //give the ability to query through 
+            default: () => new Types.ObjectId()
+        },
     name: {
         type: String,
         required: true,
@@ -15,7 +20,7 @@ const subforumSchema = new Schema(
         Default: Date.now,
         get: timestamp => dateFormat(timestamp)
     },
-    post: [postSchema]
+    post: [ postSchema ]
 },
 {
     createdBy:{
