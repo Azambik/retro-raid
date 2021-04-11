@@ -48,7 +48,7 @@ type Reply{
   username: String
 }
 
-//working on some of the query defs disabled to work on one at a time
+# //working on some of the query defs disabled to work on one at a time
   Forums(username: String): [Forum]
   Forum(_id: ID!): Forum
   Subforums(username: String): [Subforum]
