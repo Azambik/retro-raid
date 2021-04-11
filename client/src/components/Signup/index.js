@@ -54,6 +54,7 @@ const Signup = () => {
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+         {/* Small thing We may want to edit the newb part. Its funny but may come off as less profesional.*/}
           Your character wasn't created, sorry newb!
         </Alert>
 

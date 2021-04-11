@@ -2,7 +2,8 @@
   "name": "retro-raid",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "proxy": "http://localhost:3001/",
+    "dependencies": {
     "@apollo/client": "^3.3.14",
     "@apollo/react-hooks": "^4.0.0",
     "@testing-library/jest-dom": "^5.11.10",
@@ -15,6 +16,7 @@
     "graphql": "^15.5.0",
     "if-env": "^1.0.4",
     "jwt-decode": "^3.1.2",
+    "mdbreact": "^5.0.2",
     "react": "^17.0.2",
     "react-apollo": "^3.1.5",
     "react-bootstrap": "^1.5.2",

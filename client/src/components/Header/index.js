@@ -19,7 +19,7 @@ function Header({ currentPage, setCurrentPage }) {
   return (
         <Navbar bg="dark" variant="dark" >
             <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
-            <Nav className="mr-auto">
+            <Nav className="mr-auto p-3">
                 { pages.map( link =>(
                     <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
                         <span onClick={() => setCurrentPage(link)} >{link}</span>
