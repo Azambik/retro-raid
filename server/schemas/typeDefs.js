@@ -18,20 +18,19 @@ type Query {
 type Mutation {
   addUser(firstName: String!, lastName: String!, userName: String!, email: String!): User
 }
-`;
+
 
 
 module.exports = typeDefs
-//the rest of the forum elements need ways to load the data and query it. 
-/*
+# //the rest of the forum elements need ways to load the data and query it. 
 type Forum {
-  name: string
+  name: String
   subforum: [Subforum]
 }
 type Subforum {
   category: Number
   name: String
-  createdAt: string
+  createdAt: String
   post: [Post]
 }
 type Post {
@@ -45,10 +44,9 @@ type Post {
 type Reply{
   _id: ID
   replyText: String
-  createdAt: string
-  username: string
+  createdAt: String
+  username: String
 }
-
 
 //working on some of the query defs disabled to work on one at a time
   Forums(username: String): [Forum]
@@ -59,5 +57,4 @@ type Reply{
   Post(_id: ID!): Post
   Replys(username: String): [Reply]
   Reply(_id: ID!): Reply
-
-*/
+`;
