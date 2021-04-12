@@ -3,10 +3,13 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 type User {
     _id: ID
-    firstName: String
-    lastName: String
     userName: String
     email: String
+    password: String
+  }
+  type Auth {
+    token: ID
+    user: User
   }
 type Query {
   users: User
@@ -22,7 +25,7 @@ type Query {
   
 }
 type Mutation {
-  addUser(firstName: String!, lastName: String!, userName: String!, email: String!): User
+  addUser( userName: String!, email: String!, password: String!): Auth
 }
 
 # //the rest of the forum elements need ways to load the data and query it. 
