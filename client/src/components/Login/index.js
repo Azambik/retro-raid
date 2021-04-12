@@ -2,15 +2,15 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/react-hooks';
-
-import { LOGIN_USER } from '../../utils/mutations';
+import { LOGIN } from "../../utils/mutations"
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+  //const [formState, setFormState] = useState({ email: '', password: '' })
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [login] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN);
   
 
   const handleInputChange = (event) => {
@@ -18,13 +18,23 @@ const LoginForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleFormSubmit = async (event) => {
+  /*const handleFormSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
-
+    }*/
+    const handleFormSubmit = async event => {
+      event.preventDefault();
+      try {
+        const mutationResponse = await login({ variables: { email: userFormData.email, password: userFormData.password } })
+        const token = mutationResponse.data.login.token;
+        Auth.login(token);
+      } catch (e) {
+        console.log(e)
+      }
+    };
+/*
     setValidated(true);
 
     try {
@@ -42,7 +52,7 @@ const LoginForm = () => {
       username: '',
       password: '',
     });
-  };
+  };*/
 
   return (
     <>
@@ -76,7 +86,7 @@ const LoginForm = () => {
           <Form.Control.Feedback type='invalid'>Wrong password!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.email && userFormData.password)}
+         // disabled={!(userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit

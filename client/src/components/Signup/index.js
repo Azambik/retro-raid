@@ -20,7 +20,7 @@ const Signup = () => {
   };
 
 
-  const handleFormSubmit = async (event) => {
+  /*const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -46,7 +46,23 @@ const Signup = () => {
       email: '',
       password: '',
     });
-  };
+  };*/
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const mutationResponse = await addUser({
+      variables: {
+        userName: userFormData.userName, email: userFormData.email, password: userFormData.password,
+
+      }
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  }
 
   return (
     <>
