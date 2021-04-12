@@ -1,17 +1,17 @@
 import gql from 'graphql-tag';
 
 export const QUERY_POSTS = gql`
-  query posts($username: String) {
-    posts(username: $username) {
+  query posts($userName: String) {
+    posts(userName: $userName) {
       _id
       postText
       createdAt
-      username
+      userName
       replyCount
       replies {
         _id
         createdAt
-        username
+        userName
         replyBody
       }
     }

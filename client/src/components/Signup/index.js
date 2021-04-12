@@ -7,7 +7,7 @@ import Auth from '../../utils/auth';
 
 const Signup = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ userName: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
   // set state for form validation
   const [validated] = useState(false);
@@ -42,7 +42,7 @@ const Signup = () => {
     }
 
     setUserFormData({
-      username: '',
+      userName: '',
       email: '',
       password: '',
     });
@@ -59,13 +59,13 @@ const Signup = () => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label htmlFor='userName'>userName</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
-            name='username'
+            placeholder='Your userName'
+            name='userName'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.userName}
             required
           />
           <Form.Control.Feedback type='invalid'>Character name is required!</Form.Control.Feedback>
@@ -97,7 +97,7 @@ const Signup = () => {
           <Form.Control.Feedback type='invalid'>I could guess that one! Try again!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.userName && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Create and Raid!
