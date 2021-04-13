@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-//import RRLogo from 'assets' 
+import * as Icon from 'react-bootstrap-icons';
 
 function Header({ currentPage, setCurrentPage }) {
     const pages = [
@@ -16,10 +16,12 @@ function Header({ currentPage, setCurrentPage }) {
         document.title = currentPage;
     }, [currentPage]);
 
+    //when user clicks on controller, timer begins to enter konami code, if successful, toast pops up and sends pre-filled out message to Dev Team
   return (
-        <Navbar bg="dark" variant="dark" >
-            <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
-            <Nav className="mr-auto p-3">
+        <Navbar bg="dark" variant="dark">
+            <Nav className="navbox">
+                <Icon.Controller size={50} />
+                <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
                 { pages.map( link =>(
                     <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
                         <span onClick={() => setCurrentPage(link)} >{link}</span>

@@ -50,7 +50,7 @@ const LoginForm = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Character not found!
         </Alert>
-        <Form.Group>
+        <Form.Group className="formbox">
           <Form.Label htmlFor='username'>Your Character</Form.Label>
           <Form.Control
             type='text'
@@ -60,10 +60,9 @@ const LoginForm = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>That's not a real hero!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="formbox">
           <Form.Label htmlFor='password'>Your Password</Form.Label>
           <Form.Control
             type='password'
@@ -73,7 +72,6 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Wrong password!</Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(userFormData.email && userFormData.password)}

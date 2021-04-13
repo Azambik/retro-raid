@@ -1,14 +1,15 @@
 
 main {
 	margin: 0 auto;
-	max-width: 90%;
+	max-width: 100%;
   padding: 50px 30px;
+  background-image: radial-gradient(circle,#e59500, #607466, #474448);
 }
 :root {
   --primary: #474448;
   --secondary: #e59500;
   --tertiary: #607466;
-  --light: #e59500;
+  --light: whitesmoke;
   --dark: #474448;
   --darker: #111111;
   --error: rgb(228, 46, 1);
@@ -96,11 +97,13 @@ a:hover {
 
 header {
   background: var(--dark);
+
 }
 
 header a {
   color: var(--light);
 }
+
 
 button {
   font-size: 1rem;
@@ -169,7 +172,7 @@ textarea {
 }
 
 .container {
-  width: 85%;
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -307,13 +310,21 @@ a {
   margin-bottom: 15px;
 }
 
-.project {
-  border-style: solid;
-  border-color: #98C1D9;
-  border-width: 5px;
+.navbox {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.project:hover {
-  opacity: 50%;
+.signupform {
+  margin: 0 auto;
+  padding: 20px 0;
 }
+
+.formbox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
 
