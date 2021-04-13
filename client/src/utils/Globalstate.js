@@ -6,6 +6,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     //create forum reducer 
     const {state, dispatch} = useForumReducer({
         //get things that need to be monitored for change and make a default array for them. 
+        forum: []
     })
     // used to confirm if working
     console.log(state);
