@@ -3,40 +3,22 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 type User {
     _id: ID
-    firstName: String
-    lastName: String
     userName: String
     email: String
+    password: String
   }
-
-type Query {
-  users: User
-  user(username: String!): User
-  
-}
-
-type Mutation {
-  addUser(firstName: String!, lastName: String!, userName: String!, email: String!): User
-}
-`;
-
-
-module.exports = typeDefs
-//the rest of the forum elements need ways to load the data and query it. 
-/*
 type Forum {
-  name: string
+  name: String
   subforum: [Subforum]
 }
 type Subforum {
-  category: Number
   name: String
-  createdAt: string
+  createdAt: String
+  createdBy: String
   post: [Post]
 }
 type Post {
   _id: ID
-  category: Number
   postText: String
   createdAt: String
   username: String
@@ -45,13 +27,17 @@ type Post {
 type Reply{
   _id: ID
   replyText: String
-  createdAt: string
-  username: string
+  createdAt: String
+  username: String
 }
-
-
-//working on some of the query defs disabled to work on one at a time
-  Forums(username: String): [Forum]
+type Auth {
+  token: ID
+  user: User
+}
+type Query {
+  users: User
+  user(username: String!): User
+  Forums: Forum
   Forum(_id: ID!): Forum
   Subforums(username: String): [Subforum]
   Subforum(_id: ID!): Subforum
@@ -59,5 +45,12 @@ type Reply{
   Post(_id: ID!): Post
   Replys(username: String): [Reply]
   Reply(_id: ID!): Reply
+  
+}
+type Mutation {
+  addUser( userName: String!, email: String!, password: String!): Auth
+  login( email: String!, password: String!): Auth
+}
+`;
 
-*/
+module.exports = typeDefs

@@ -1,21 +1,7 @@
-const mongoose = require ('mongoose');
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const { Schema } = mongoose;
-//const Order = require('./Orders');
-
-
 
 const userSchema = new Schema({ 
-    firstName: {
-        type: String,
-        require: true,
-        trim: true
-    },
-    lastName: {
-        type: String,
-        Required: true,
-        trim: true
-    },
     userName: {
         type: String,
         Required: true,
@@ -25,7 +11,8 @@ const userSchema = new Schema({
     email: {
         type: String,
         Required: true,
-        unique: true 
+        unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!']
     },
     password: {
         type: String,
@@ -57,6 +44,6 @@ userSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   };
 
-  const User = mongoose.model('User', userSchema);
+  const User = model('User', userSchema);
   
   module.exports = User

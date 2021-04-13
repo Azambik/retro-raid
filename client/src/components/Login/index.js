@@ -7,7 +7,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [login] = useMutation(LOGIN_USER);
@@ -39,7 +39,7 @@ const LoginForm = () => {
     }
 
     setUserFormData({
-      username: '',
+      email: '',
       password: '',
     });
   };
@@ -50,20 +50,19 @@ const LoginForm = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Character not found!
         </Alert>
-        <Form.Group>
-          <Form.Label htmlFor='username'>Your Character</Form.Label>
+        <Form.Group className="formbox">
+          <Form.Label htmlFor='email'>Your Character</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your Character'
-            name='username'
+            placeholder='Your Character email'
+            name='email'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>That's not a real hero!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="formbox">
           <Form.Label htmlFor='password'>Your Password</Form.Label>
           <Form.Control
             type='password'
@@ -73,7 +72,6 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Wrong password!</Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(userFormData.email && userFormData.password)}

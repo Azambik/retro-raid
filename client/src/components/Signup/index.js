@@ -7,7 +7,7 @@ import Auth from '../../utils/auth';
 
 const Signup = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ userName: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
   // set state for form validation
   const [validated] = useState(false);
@@ -42,7 +42,7 @@ const Signup = () => {
     }
 
     setUserFormData({
-      username: '',
+      userName: '',
       email: '',
       password: '',
     });
@@ -51,53 +51,50 @@ const Signup = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit} className="signupform">
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
          {/* Small thing We may want to edit the newb part. Its funny but may come off as less profesional.*/}
           Your character wasn't created, sorry newb!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+        <Form.Group  className="formbox">
+          <Form.Label htmlFor='userName'>What's your name?</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
-            name='username'
+            placeholder="Name your character!"
+            name='userName'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.userName}
             required
           />
-          <Form.Control.Feedback type='invalid'>Character name is required!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='email'>Your Email</Form.Label>
+        <Form.Group className="formbox">
+          <Form.Label htmlFor='email'>Your Email?</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Your email address'
+            placeholder='Enter a valid e-mail'
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required, hero!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='password'>Your Password</Form.Label>
+        <Form.Group className="formbox">
+          <Form.Label htmlFor='password'>Set a Password!</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Your password'
+            placeholder='Write it down somewhere!'
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>I could guess that one! Try again!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.userName && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Create and Raid!

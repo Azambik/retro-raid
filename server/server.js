@@ -14,6 +14,7 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app });
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // serving up static assets

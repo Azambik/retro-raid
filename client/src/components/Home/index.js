@@ -4,6 +4,7 @@ import React from 'react';
 //import RRLogo for jumbotron
 import {Container, Row, Col, Image } from 'react-bootstrap';
 
+
 function Home() {
     //1st row is title; 2nd row is about; 3rd row is loading posts...
     return (
