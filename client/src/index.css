@@ -3,7 +3,7 @@ main {
 	margin: 0 auto;
 	max-width: 100%;
   padding: 50px 30px;
-  background-image: radial-gradient(circle,#e59500, #607466, #474448);
+ 
 }
 :root {
   --primary: #474448;
@@ -42,7 +42,7 @@ body {
   background: var(--dark);
   color: var(--light);
   font-family: 'VT323-Regular';
-
+  background-image: radial-gradient(circle,#e59500, #607466, #474448);
 }
 
 h1,
