@@ -17,3 +17,16 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
+export const QUERY_ALL_FORUM = gql`
+  {
+    Forums {
+      _id
+      name
+      subforum {
+        name
+        createdAt
+        createdBy
+      }
+    }
+  }
+`;

@@ -21,9 +21,9 @@ const resolvers ={
         Forum: async (parent, { _id }) => {
             return Forum.findOne({ _id });
           },
-        Forums: async (parent, { username}) => {
-           const params = username ? { username } : {};
-           return Forum.find(params).sort({ createdAt: -1 });
+        Forums: async () => {
+           return Forum.find()
+           .populate('Post')
         },
     },
     Mutation: {

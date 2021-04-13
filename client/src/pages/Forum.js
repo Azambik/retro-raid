@@ -1,22 +1,20 @@
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_POSTS } from '../utils/queries';
-import PostList from '../components/Post';
+import { QUERY_ALL_FORUM } from '../utils/queries';
+//import PostList from '../components/Post';
+import {useStoreContext } from  '../utils/Globalstate';
+import { idbPromise } from "../utils/helpers";
 
 const Forum = () => {
-    const { loading, data } = useQuery(QUERY_POSTS);
-    const posts = data?.posts || [];
-    console.log(posts);
+    //const [state, dispatch] = useStoreContext();
+    //const { loading, data } = useQuery(QUERY_ALL_FORUM);
+   // const posts = data?.posts || [];
+    //console.log(posts);
 
     return (
         <main>
             <div className='flex-row justify-space-between'>
-                <div className='col-12 mb-3'>
-                    {loading ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <PostList posts={posts} title="Dungeons Available..."/>
-                    )}
-                    </div>
+                
             </div>
         </main>
     );

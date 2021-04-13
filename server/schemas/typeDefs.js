@@ -14,6 +14,7 @@ type Forum {
 type Subforum {
   name: String
   createdAt: String
+  createdBy: String
   post: [Post]
 }
 type Post {
@@ -36,7 +37,7 @@ type Auth {
 type Query {
   users: User
   user(username: String!): User
-  Forums(username: String): [Forum]
+  Forums: Forum
   Forum(_id: ID!): Forum
   Subforums(username: String): [Subforum]
   Subforum(_id: ID!): Subforum

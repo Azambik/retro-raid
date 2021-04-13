@@ -16,3 +16,7 @@ export const reducer = (state, action) => {
             }
     }
 }
+
+export function useForumReducer(initialState) {
+    return useReducer(reducer, initialState);
+  }

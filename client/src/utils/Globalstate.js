@@ -1,6 +1,7 @@
-import React, { createContext, useContext } from 'react';
-const storeContext = createContext();
-const { provider } = StoreContext;
+import React, { createContext, useContext } from "react";
+import { useForumReducer } from './reducers';
+const StoreContext = createContext();
+const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
     //create forum reducer 
