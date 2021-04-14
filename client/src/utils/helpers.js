@@ -11,17 +11,19 @@ export function validateEmail(email) {
       let db, tx, store;
       // if virsion has changed or if this is the first time using the database, run this method and create stores
       request.onupgradeneeded = function(e) {
-        const db = request.results;
+        const db = request.result;
         // creating object store for data and set 'primary' key index to be the '-id' of the data
-        db.createObjectStore('Forum', {keyPath: '_id'});
+        db.createObjectStore('posts', {KeyPath: '_id'});
+        db.createObjectStore('forums', {keyPath: '_id'});
       };
       request.onerror = function(e){
         console.log('Looks like something went wrong');
     };
         request.onsuccess = function(e) {
           //save a reference of the database to the 'db' variable
-          db = request.results;
+          db = request.result;
           // open a transaction to do whatever we pass into ' storeName' ( must match one of the object store names)
+          console.log(storeName);
           tx = db.transaction(storeName, 'readwrite');
           //save a reference to the object store
           store = tx.objectStore(storeName);

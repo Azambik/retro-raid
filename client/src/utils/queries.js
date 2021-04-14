@@ -17,15 +17,15 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
-export const QUERY_ALL_FORUM = gql`
+export const QUERY_ALL_POST = gql`
   {
-    Forums {
+    posts {
       _id
       name
-      subforum {
+      postText
+      createdAt
+      forum {
         name
-        createdAt
-        createdBy
       }
     }
   }

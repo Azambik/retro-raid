@@ -9,7 +9,8 @@ import Help from './components/Help';
 import './App.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-//import { StoreProvider } from './utils/GlobalState';
+import { StoreProvider } from './utils/Globalstate';
+
 
 const client = new ApolloClient({
   request: operation => {
@@ -53,7 +54,7 @@ function App() {
   }
   return (
     <ApolloProvider client={client}>
-      <div>
+      <StoreProvider>
         <Header
           pages={pages}
           setCurrentPage={setCurrentPage}
@@ -63,7 +64,7 @@ function App() {
           { renderPage(currentPage) }
         </main>
         <Footer/>    
-      </div>
+        </StoreProvider>
     </ApolloProvider>  
   );
 }
