@@ -7,7 +7,7 @@ db.once('open', async () => {
   Promise.all([userSeed(),seedForum()])
   .then(values => {
     console.log(values);
-    console.log("proses complete");
+    console.log("Process Complete");
     process.exit(0);
   })
   

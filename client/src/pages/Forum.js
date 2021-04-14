@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_CATEGORIES } from '../utils/queries';
+import { QUERY_FORUM } from '../utils/queries';
 //import PostList from '../components/Post';
 import { UPDATE_POST } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
@@ -9,7 +9,7 @@ import { idbPromise } from "../utils/helpers";
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
     const { currentForum } = state;
-    const { loading, data: forumData } = useQuery(QUERY_CATEGORIES);
+    const { loading, data: forumData } = useQuery(QUERY_FORUM);
    // const posts = data?.posts || [];
     //console.log(posts);
 
