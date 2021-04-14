@@ -6,7 +6,8 @@ import{
     CREATE_REPLY,
     UPDATE_REPLY,
     DELETE_REPLY,
-    UPDATE_FORUM
+    UPDATE_FORUM,
+    UPDATE_CURRENT_FORUM
 } from './actions';
 
 export const reducer = (state, action) => {
@@ -15,8 +16,14 @@ export const reducer = (state, action) => {
         case UPDATE_FORUM:
             return{
                 ...state,
-                forum: {...action.forum}
-            }
+                forum: [...action.forum]
+            };
+        case UPDATE_CURRENT_FORUM:
+            return{
+                ...state,
+                currentForum: {...action.currentForum}
+            };
+    
         //if it's none of these actions, do not update state at all and keep things the same!
         default:
         return state;

@@ -30,11 +30,11 @@ export const QUERY_ALL_POST = gql`
     }
   }
 `;
-
 export const QUERY_FORUM = gql`
-  {
-    Forums {
-      _id
-      name
-    }
-  `;
+ {
+  Forums{
+    _id
+   name
+ }
+}
+`;

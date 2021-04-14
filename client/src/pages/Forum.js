@@ -2,50 +2,63 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_FORUM } from '../utils/queries';
 //import PostList from '../components/Post';
-import { UPDATE_FORUM, UPDATE_POST } from '../utils/actions';
+import { UPDATE_FORUM, UPDATE_CURRENT_FORUM } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
 
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
-    const { currentForum } = state;
-    const { loading, data: forumData } = useQuery(QUERY_FORUM);
+    const { forum } = state;
+    console.log(forum);
+    const { loading, data } = useQuery(QUERY_FORUM);
    // const posts = data?.posts || [];
     //console.log(posts);
 
     useEffect(() => { 
         if (data) {
+            console.log(data);
             dispatch({
                 type: UPDATE_FORUM,
-                post: data.post
+                forum: data.Forums
+                
             });
-            //coppying to indexeddb from helper function
-            data.posts.forEach((post) => {
-                idbPromise('forums', 'put', post);
-            });
+            //console.log(forumData);
+            data.Forums.forEach(forum => {
+                idbPromise('forum', 'put', forum);
+              });
         } else if (!loading) {
-            idbPromise('posts', 'get').then((posts) => {
+            idbPromise('forum', 'get').then((forum) => {
                 //use retrieved data to set global state for offline browsing 
                 dispatch({
-                    type: UPDATE_POST,
-                    posts: posts
+                    type: UPDATE_FORUM,
+                    forum: forum 
                 });
             });
         }
-    }, [data, loading, dispatch]);
+    }, [data, dispatch]);
 
-    function filterForum() {
-        if (!currentForum) {
-          return state.post;
-        }
-        return state.post.filter(post => post.forum._id === currentForum);
-    }
+    const handleClick = id => {
+        dispatch({
+            type: UPDATE_CURRENT_FORUM,
+            currentCategory: id
+        });
+    };
 
     return (
         <main>
             <div className='flex-row justify-space-between'>
                 <div>
-                    {filterPost}
+                   <h2>Chose your dungeon</h2>
+                   {forum.map(item => (
+                    <button
+                    key={item._id}
+                    onClick={() => {
+                        handleClick(item._id);
+                    }}
+                    >
+                     {item.name}
+                    </button>
+                   ))}
                 </div>
                 
             </div>
