@@ -18,13 +18,25 @@ const resolvers ={
             .populate('Post')
             .populate('Reply');
         },
-        Forum: async (parent, { _id }) => {
-            return Forum.findOne({ _id });
-          },
-        Forums: async (parent, { username}) => {
-           const params = username ? { username } : {};
-           return Forum.find(params).sort({ createdAt: -1 });
+        Forums: async () => {
+           return await Forum.find()
         },
+        posts: async (parent, { Forum, name }) => {
+          const params = {};
+    
+          if (Forum) {
+            params.Forum = Forum;
+          }
+    
+          if (name) {
+            params.name = {
+              $regex: name
+            };
+          }
+    
+          return await Post.find(params).populate('Forum');
+        },
+
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -32,7 +44,25 @@ const resolvers ={
             const token = signToken(user);
       
             return { token, user };
-          }   
+          },   
+        
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const token = signToken(user);
+      
+            return { token, user };
+          }
         },
 };
 

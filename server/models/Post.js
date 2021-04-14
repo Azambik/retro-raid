@@ -21,6 +21,12 @@ const postSchema = new Schema(
             default: Date.now,
             get:timestamp => dateFormat(timestamp)
         },
+        forum: {
+            type: Schema.Types.ObjectId,
+            ref: 'Forum',
+            required: true
+    
+        },
         username:{
             type: String,
             required: true

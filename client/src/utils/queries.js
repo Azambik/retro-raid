@@ -17,3 +17,16 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
+export const QUERY_ALL_POST = gql`
+  {
+    posts {
+      _id
+      name
+      postText
+      createdAt
+      forum {
+        name
+      }
+    }
+  }
+`;

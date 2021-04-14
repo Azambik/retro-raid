@@ -7,7 +7,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [login] = useMutation(LOGIN_USER);
@@ -39,7 +39,7 @@ const LoginForm = () => {
     }
 
     setUserFormData({
-      username: '',
+      email: '',
       password: '',
     });
   };
@@ -51,13 +51,13 @@ const LoginForm = () => {
           Character not found!
         </Alert>
         <Form.Group className="formbox">
-          <Form.Label htmlFor='username'>Your Character</Form.Label>
+          <Form.Label htmlFor='email'>Your Character</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your Character'
-            name='username'
+            placeholder='Your Character email'
+            name='email'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={userFormData.email}
             required
           />
         </Form.Group>
