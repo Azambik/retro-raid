@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_FORUM } from '../utils/queries';
 //import PostList from '../components/Post';
-import { UPDATE_POST } from '../utils/actions';
+import { UPDATE_FORUM, UPDATE_POST } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
 
@@ -16,7 +16,7 @@ const Forum = ({}) => {
     useEffect(() => { 
         if (data) {
             dispatch({
-                type: UPDATE_POST,
+                type: UPDATE_FORUM,
                 post: data.post
             });
             //coppying to indexeddb from helper function
