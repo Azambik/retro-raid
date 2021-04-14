@@ -19,7 +19,7 @@ db.once('open', async () => {
     const createdUsers = await User.collection.insertMany(userData);
 
 
-    console.log('Prosses complete')
+    console.log('Process complete')
 
     process.exit(0);
 

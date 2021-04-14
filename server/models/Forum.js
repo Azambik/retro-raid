@@ -1,5 +1,4 @@
-const { Schema, model} = require('mongoose');
-const subforumSchema = require('./SubForum').schema;     
+const { Schema, model} = require('mongoose');     
 const dateFormat = require('../utils/dateFormat');
 
 const forumSchema = new Schema(
@@ -10,7 +9,6 @@ const forumSchema = new Schema(
         minlength: 1,
         maxlength: 64
     },
-    subforum: [ subforumSchema ]
 },
 {
     toJSON: {
