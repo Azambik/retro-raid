@@ -14,7 +14,7 @@ export function validateEmail(email) {
         const db = request.result;
         // creating object store for data and set 'primary' key index to be the '-id' of the data
         db.createObjectStore('posts', {KeyPath: '_id'});
-        db.createObjectStore('forums', {keyPath: '_id'});
+        db.createObjectStore('forum', {keyPath: '_id'});
       };
       request.onerror = function(e){
         console.log('Looks like something went wrong');
