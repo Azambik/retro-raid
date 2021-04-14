@@ -5,15 +5,28 @@ import{
     DELETE_POST,
     CREATE_REPLY,
     UPDATE_REPLY,
-    DELETE_REPLY
+    DELETE_REPLY,
+    UPDATE_FORUM,
+    UPDATE_CURRENT_FORUM
 } from './actions';
 
 export const reducer = (state, action) => {
     //main switch to determin witch action was used
     switch (action.type) {
-        case CREATE_POST:
+        case UPDATE_FORUM:
             return{
-            }
+                ...state,
+                forum: [...action.forum]
+            };
+        case UPDATE_CURRENT_FORUM:
+            return{
+                ...state,
+                currentForum: {...action.currentForum}
+            };
+    
+        //if it's none of these actions, do not update state at all and keep things the same!
+        default:
+        return state;
     }
 }
 

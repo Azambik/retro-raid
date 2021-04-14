@@ -18,13 +18,25 @@ const resolvers ={
             .populate('Post')
             .populate('Reply');
         },
-        Forum: async (parent, { _id }) => {
-            return Forum.findOne({ _id });
-          },
         Forums: async () => {
-           return Forum.find()
-           .populate('Post')
+           return await Forum.find()
         },
+        posts: async (parent, { Forum, name }) => {
+          const params = {};
+    
+          if (Forum) {
+            params.Forum = Forum;
+          }
+    
+          if (name) {
+            params.name = {
+              $regex: name
+            };
+          }
+    
+          return await Post.find(params).populate('Forum');
+        },
+
     },
     Mutation: {
         addUser: async (parent, args) => {
