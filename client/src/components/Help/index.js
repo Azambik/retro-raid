@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import { validateEmail } from '../../utils/helpers';
 
 
@@ -37,9 +38,14 @@ function Help() {
   };
 
   return (
-    <Container center>
+    <Container fluid>
+      <Row>
       <h1>Need Help?</h1>
+      </Row>
+      <Row>
       <h4>Reach out to ask the Retro Raid Dev Team!</h4>
+      </Row>
+      <Row>
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Your (Real) Name:</label>
@@ -60,6 +66,7 @@ function Help() {
         )}
         <Button variant="outline-light" type="submit">Send Message!</Button>
       </form>
+      </Row>
     </Container>
   );
 }

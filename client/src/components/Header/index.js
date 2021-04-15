@@ -24,7 +24,7 @@ function Header({ currentPage, setCurrentPage }) {
 
     //when user clicks on controller, timer begins to enter konami code, if successful, toast pops up and sends pre-filled out message to Dev Team
   return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" expand="lg">
             <Nav className="navbox">
                 <Icon.Controller className='navActive' ref={target} onClick={() => setShow(!show)} size={50} />
                 <Overlay target={target.current} show={show} placement="right">

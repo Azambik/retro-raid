@@ -12,7 +12,7 @@ function Footer() {
             <Row>
                 <Col>
                 <a href="https://www.twitter.com/RR_Dev_Team">
-                    <img className="thumbnail-logo footerrow" 
+                    <img className="thumbnail-logo" 
                     src={Twitter} 
                     alt="Twitter Profile Link"/>
                 </a>
