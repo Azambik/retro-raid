@@ -26,7 +26,7 @@ export const reducer = (state, action) => {
         case UPDATE_POST:
             return{
                 ...state,
-                post: {...action.post}
+                posts: {...action.posts}
             }
     
         //if it's none of these actions, do not update state at all and keep things the same!

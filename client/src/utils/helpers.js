@@ -13,7 +13,7 @@ export function validateEmail(email) {
       request.onupgradeneeded = function(e) {
         const db = request.result;
         // creating object store for data and set 'primary' key index to be the '-id' of the data
-        db.createObjectStore('posts', {KeyPath: '_id'});
+        db.createObjectStore('posts', {keyPath: '_id'});
         db.createObjectStore('forum', {keyPath: '_id'});
       };
       request.onerror = function(e){

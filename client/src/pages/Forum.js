@@ -37,8 +37,9 @@ const Forum = ({}) => {
     const handleClick = id => {
         dispatch({
             type: UPDATE_CURRENT_FORUM,
-            currentCategory: id
+            currentForum: {id}
         });
+       
     };
 
     return (
@@ -54,12 +55,12 @@ const Forum = ({}) => {
                     }}
                     >
                      {forum.name}
-                     <Post></Post>
                     </button>
                    ))}
                 </div>
                 
             </div>
+            <Post/>
         </main>
     );
 };

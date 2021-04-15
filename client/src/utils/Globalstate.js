@@ -8,7 +8,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useForumReducer({
         //get things that need to be monitored for change and make a default array for them. 
         forum: [],
-        post: [],
+        posts: [],
         currentForum: ''
         
     })
