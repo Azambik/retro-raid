@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import * as Icon from 'react-bootstrap-icons';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Overlay from 'react-bootstrap/Overlay';
+import Auth from '../../utils/auth';
 
 
 function Header({ currentPage, setCurrentPage }) {
