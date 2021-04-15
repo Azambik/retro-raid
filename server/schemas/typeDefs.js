@@ -7,20 +7,23 @@ type User {
     email: String
     password: String
   }
+  type Auth {
+    token: ID
+    user: User
+  }
+
 type Forum {
+  _id: ID
   name: String
-  subforum: [Subforum]
 }
-type Subforum {
-  name: String
-  createdAt: String
-  post: [Post]
-}
+
 type Post {
   _id: ID
+  name: String
   postText: String
   createdAt: String
   username: String
+  forum: Forum
   reply: [Reply]
 }
 type Reply{
@@ -29,19 +32,15 @@ type Reply{
   createdAt: String
   username: String
 }
-type Auth {
-  token: ID
-  user: User
-}
+
 type Query {
-  users: User
+  forums: [Forum]
+  users: [User]
   user(username: String!): User
-  Forums(username: String): [Forum]
+  Forums: [Forum]
   Forum(_id: ID!): Forum
-  Subforums(username: String): [Subforum]
-  Subforum(_id: ID!): Subforum
-  Posts(username: String): [Post]
-  Post(_id: ID!): Post
+  posts(forum: ID, name: String): [Post]
+  Post(_id: ID!): [Post]
   Replys(username: String): [Reply]
   Reply(_id: ID!): Reply
   

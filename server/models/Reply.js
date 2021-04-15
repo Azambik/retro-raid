@@ -3,11 +3,6 @@ const dateFormat = require('../utils/dateFormat');
 
 const replySchema = new Schema(
     {
-        replyid:{
-            type: Schema.Types.ObjectId,
-            //give the ability to query through 
-            default: () => new Types.ObjectId()
-        },
         replyText: {
             type: String,
             required: 'You need to enter post text!',
@@ -18,6 +13,12 @@ const replySchema = new Schema(
             type: Date,
             default: Date.now,
             get:timestamp => dateFormat(timestamp)
+        },
+        post: {
+            type: Schema.Types.ObjectId,
+            ref: 'Post',
+            required: true
+    
         },
         username:{
             type: String,

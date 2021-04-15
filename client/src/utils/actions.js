@@ -4,3 +4,5 @@ export const DELETE_POST = "DELETE_POST";
 export const CREATE_REPLY = "CREATE_REPLY";
 export const UPDATE_REPLY = "UPDATE_REPLY";
 export const DELETE_REPLY = "DELETE_REPLY";
+export const UPDATE_FORUM = "UPDATE_FORUM";
+export const UPDATE_CURRENT_FORUM = "UPDATE_CURRENT_FORUM"

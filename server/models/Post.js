@@ -5,10 +5,13 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
     {
-        postid:{
-            type: Schema.Types.ObjectId,
-            //give the ability to query through 
-            default: () => new Types.ObjectId()
+       
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+            minlength: 1,
+            maxlength: 64
         },
         postText: {
             type: String,
@@ -20,6 +23,12 @@ const postSchema = new Schema(
             type: Date,
             default: Date.now,
             get:timestamp => dateFormat(timestamp)
+        },
+        forum: {
+            type: Schema.Types.ObjectId,
+            ref: 'Forum',
+            required: true
+    
         },
         username:{
             type: String,
