@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Footer from '../Footer';
 
 const Signup = () => {
   // set initial form state
@@ -50,15 +51,12 @@ const Signup = () => {
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit} className="signupform">
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-         {/* Small thing We may want to edit the newb part. Its funny but may come off as less profesional.*/}
-          Your character wasn't created, sorry newb!
+          Character not created.
         </Alert>
-
-        <Form.Group  className="formbox">
+        <Form.Group className="formbox">
           <Form.Label htmlFor='userName'>What's your name?</Form.Label>
           <Form.Control
             type='text'
@@ -96,11 +94,13 @@ const Signup = () => {
         <Button
           disabled={!(userFormData.userName && userFormData.email && userFormData.password)}
           type='submit'
-          variant='success'>
+          variant='success'
+          >
           Create and Raid!
         </Button>
       </Form>
-    </>
+      <Footer/>
+      </>
   );
 };
 

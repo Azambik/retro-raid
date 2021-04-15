@@ -7,7 +7,7 @@ db.once('open', async () => {
   Promise.all([userSeed(),seedForum()])
   .then(values => {
     console.log(values);
-    console.log("proses complete");
+    console.log("Process Complete");
     process.exit(0);
   })
   
@@ -34,28 +34,28 @@ const seedForum = async function() {
   await Forum.deleteMany({});
   const forumData = [
     {
-      name: 'introductions'
+      name: 'Introductions'
     },
     {
-      name: 'console'
+      name: 'Consoles'
     },
     {
-      name: 'games'
+      name: 'Games'
     },
     {
-      name: 'hardware/mods'
+      name: 'Hardware/Mods'
     },
     {
-      name: 'reproductions'
+      name: 'Reproductions'
     },
     {
-      name: 'game jounal'
+      name: 'Game Journal'
     },
     {
-      name: 'RP(role play)'
+      name: 'Role Play'
     },
     {
-      name: 'clasified'
+      name: 'Classifieds'
     }
 
   ]

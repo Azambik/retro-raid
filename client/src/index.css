@@ -2,8 +2,7 @@
 main {
 	margin: 0 auto;
 	max-width: 100%;
-  padding: 50px 30px;
- 
+  padding: 50px 50px;
 }
 :root {
   --primary: #474448;
@@ -16,7 +15,6 @@ main {
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
   --spacing-five: calc(2.5rem);
-
 }
 
 * {
@@ -29,7 +27,9 @@ main {
 } 
 html,
 body {
-  height: 100%;
+  padding: 0;
+  margin: 0;
+  
 }
 
 body {
@@ -43,6 +43,7 @@ body {
   color: var(--light);
   font-family: 'VT323-Regular';
   background-image: radial-gradient(circle,#e59500, #607466, #474448);
+  
 }
 
 h1,
@@ -58,6 +59,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  text-align: center;
 }
 
 h2 {
@@ -83,6 +85,7 @@ h6 {
 p {
   font-size: 1.1rem;
   margin-top: 0;
+  text-align: center;
 }
 
 a {
@@ -113,8 +116,9 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 0 1px;
+  margin: 0 200px;
   background-color: var(--secondary);
+  width: 25%;
 }
 
 button:hover {
@@ -173,7 +177,7 @@ textarea {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -297,7 +301,7 @@ a {
 }
 
 .navActive {
-  color: var(--secondary);
+  color: whitesmoke;
 }
 
 .thumbnail-logo {
@@ -308,11 +312,6 @@ a {
 
 .with-margin {
   margin-bottom: 15px;
-}
-
-.navbox {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .signupform {
@@ -326,5 +325,6 @@ a {
   width: 100%;
 }
 
-
-
+.socialmedia {
+  text-align: center;
+}
