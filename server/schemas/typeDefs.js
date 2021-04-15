@@ -39,7 +39,7 @@ type Query {
   user(username: String!): User
   Forums: [Forum]
   Forum(_id: ID!): Forum
-  posts(username: String): [Post]
+  posts(forum: ID, name: String): [Post]
   Post(_id: ID!): [Post]
   Replys(username: String): [Reply]
   Reply(_id: ID!): Reply

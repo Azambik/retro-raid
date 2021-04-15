@@ -13,7 +13,7 @@ const StoreProvider = ({ value = [], ...props }) => {
         
     })
     // used to confirm if working
-    console.log(state);
+   // console.log(state);
     return <Provider value={[ state, dispatch]} {...props} />
 };
 

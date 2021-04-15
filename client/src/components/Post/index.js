@@ -2,23 +2,25 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/Globalstate';
-import { QUERY_POST } from '../../utils/queries';
+import { QUERY_POSTS } from '../../utils/queries';
 import { UPDATE_POST } from '../../utils/actions';
 import spinner from "../../assets/spinner.gif"
 import ForumItem from '../ForumItem';
 
 const PostList = ({ }) => {
   const [state, dispatch] = useStoreContext();
-  const { curentForum } = state;
-  const { loading, data } = useQuery(QUERY_POST);
-  console.log("this is the data" + data);
+  const { currentForum } = state;
+  const { loading, data } = useQuery(QUERY_POSTS);
+
   useEffect(() => {
     if (data) {
+      console.log(data);
       dispatch({
         type: UPDATE_POST,
-        post: data.Post
+        post: data.post
       });
-      data.post.forEach((post) => {
+      console.log(data);
+      data.posts.forEach((post) => {
         idbPromise('posts', 'put', post);
       });
     } else if (!loading) {
@@ -33,10 +35,10 @@ const PostList = ({ }) => {
   }, [data, loading, dispatch]);
 
   function filterPost(){
-    if (!curentForum) {
+    if (!currentForum) {
       return state.post
     }
-    return state.post.filter(post => post.forum._id === curentForum);
+    return state.post.filter(post => post.forum._id === currentForum);
   }
 
   return (

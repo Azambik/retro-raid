@@ -16,7 +16,6 @@ function ProductItem(post) {
   return (
     <div className="card px-1 py-1">
       <Link to={`/post/${_id}`}>
-          hi
         <p>{name}</p>
         <p>{createdAt}</p>
       </Link>

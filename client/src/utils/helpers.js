@@ -23,7 +23,7 @@ export function validateEmail(email) {
           //save a reference of the database to the 'db' variable
           db = request.result;
           // open a transaction to do whatever we pass into ' storeName' ( must match one of the object store names)
-          console.log(storeName);
+         // console.log(storeName);
           tx = db.transaction(storeName, 'readwrite');
           //save a reference to the object store
           store = tx.objectStore(storeName);

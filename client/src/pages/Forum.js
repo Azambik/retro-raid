@@ -7,23 +7,19 @@ import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
 import Post from '../components/Post'; 
 
+
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
     const { forum } = state;
-    console.log(forum);
     const { loading, data } = useQuery(QUERY_FORUM);
-   // const posts = data?.posts || [];
-    //console.log(posts);
 
     useEffect(() => { 
         if (data) {
-            console.log(data);
             dispatch({
                 type: UPDATE_FORUM,
                 forum: data.Forums
                 
             });
-            //console.log(forumData);
             data.Forums.forEach(forum => {
                 idbPromise('forum', 'put', forum);
               });
@@ -58,6 +54,7 @@ const Forum = ({}) => {
                     }}
                     >
                      {forum.name}
+                     <Post></Post>
                     </button>
                    ))}
                 </div>
