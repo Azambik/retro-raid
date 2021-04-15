@@ -1,13 +1,13 @@
 const faker = require('faker');
 const db = require('./connection');
-const { User, Forum} = require('../models');
+const { User, Forum, Post} = require('../models');
 
 db.once('open', async () => {
    
-  Promise.all([userSeed(),seedForum()])
+  Promise.all([/*userSeed(),seedForum(),*/seedPost()])
   .then(values => {
     console.log(values);
-    console.log("proses complete");
+    console.log("Process Complete");
     process.exit(0);
   })
   
@@ -34,31 +34,89 @@ const seedForum = async function() {
   await Forum.deleteMany({});
   const forumData = [
     {
-      name: 'introductions'
+      name: 'Introductions'
     },
     {
-      name: 'console'
+      name: 'Consoles'
     },
     {
-      name: 'games'
+      name: 'Games'
     },
     {
-      name: 'hardware/mods'
+      name: 'Hardware/Mods'
     },
     {
-      name: 'reproductions'
+      name: 'Reproductions'
     },
     {
-      name: 'game jounal'
+      name: 'Game Journal'
     },
     {
-      name: 'RP(role play)'
+      name: 'Role Play'
     },
     {
-      name: 'clasified'
+      name: 'Classifieds'
     }
 
   ]
   return Forum.collection.insertMany(forumData);
 
+}
+
+const seedPost = async function() {
+  await Post.deleteMany({});
+ const post = [
+   {name: "introductions"},
+   {name: "console"},
+   {name: "games"},
+   {name: "hardware/mods"},
+   {name: "reproductions"},
+   {name: "game jounal"},
+   {name: "RP(role play)"}
+ ]
+  const postData = [
+    {
+      name: "test post 1",
+      postText: "this is a test post for into",
+      forum: post[0]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 2",
+      postText: "this is a test post for console",
+      forum: post[1]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 3",
+      postText: "this is a test post for games",
+      forum: post[2]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 4",
+      postText: "this is a test post for hardware/mods",
+      forum: post[3]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 5",
+      postText: "this is a test post for reproductions",
+      forum: post[4]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 6",
+      postText: "this is a test post for game jounal",
+      forum: post[5]._id,
+      username: "thepandaofnom"
+    },
+    {
+      name: "test post 7",
+      postText: "this is a test post for RP",
+      forum: post[6]._id,
+      username: "thepandaofnom"
+    }
+  ]
+  return Post.collection.insertMany(postData);
 }

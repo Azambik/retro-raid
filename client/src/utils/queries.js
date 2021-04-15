@@ -38,3 +38,18 @@ export const QUERY_FORUM = gql`
  }
 }
 `;
+
+export const QUERY_POST = gql`
+  {
+    post{
+     _id
+     name
+     postText
+     createdAt
+     username
+     forum {
+       name
+     } 
+    }
+  }
+`;

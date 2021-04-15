@@ -23,6 +23,11 @@ export const reducer = (state, action) => {
                 ...state,
                 currentForum: {...action.currentForum}
             };
+        case UPDATE_POST:
+            return{
+                ...state,
+                post: [...action.post]
+            }
     
         //if it's none of these actions, do not update state at all and keep things the same!
         default:

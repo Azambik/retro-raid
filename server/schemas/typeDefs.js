@@ -7,6 +7,11 @@ type User {
     email: String
     password: String
   }
+  type Auth {
+    token: ID
+    user: User
+  }
+
 type Forum {
   _id: ID
   name: String
@@ -27,10 +32,7 @@ type Reply{
   createdAt: String
   username: String
 }
-type Auth {
-  token: ID
-  user: User
-}
+
 type Query {
   forums: [Forum]
   users: [User]
@@ -38,7 +40,7 @@ type Query {
   Forums: [Forum]
   Forum(_id: ID!): Forum
   posts(username: String): [Post]
-  Post(_id: ID!): Post
+  Post(_id: ID!): [Post]
   Replys(username: String): [Reply]
   Reply(_id: ID!): Reply
   

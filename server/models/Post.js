@@ -10,6 +10,13 @@ const postSchema = new Schema(
             //give the ability to query through 
             default: () => new Types.ObjectId()
         },
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+            minlength: 1,
+            maxlength: 64
+        },
         postText: {
             type: String,
             required: 'You need to enter post text!',

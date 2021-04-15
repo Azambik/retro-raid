@@ -5,6 +5,7 @@ import { QUERY_FORUM } from '../utils/queries';
 import { UPDATE_FORUM, UPDATE_CURRENT_FORUM } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
+import Post from '../components/Post'; 
 
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
@@ -49,14 +50,14 @@ const Forum = ({}) => {
             <div className='flex-row justify-space-between'>
                 <div>
                    <h2>Chose your dungeon</h2>
-                   {forum.map(item => (
+                   {forum.map(forum => (
                     <button
-                    key={item._id}
+                    key={forum._id}
                     onClick={() => {
-                        handleClick(item._id);
+                        handleClick(forum._id);
                     }}
                     >
-                     {item.name}
+                     {forum.name}
                     </button>
                    ))}
                 </div>
