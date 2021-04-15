@@ -5,25 +5,21 @@ import { QUERY_FORUM } from '../utils/queries';
 import { UPDATE_FORUM, UPDATE_CURRENT_FORUM } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
-import Footer from '../components/Footer';
+import Post from '../components/Post'; 
+
 
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
     const { forum } = state;
-    console.log(forum);
     const { loading, data } = useQuery(QUERY_FORUM);
-   // const posts = data?.posts || [];
-    //console.log(posts);
 
     useEffect(() => { 
         if (data) {
-            console.log(data);
             dispatch({
                 type: UPDATE_FORUM,
                 forum: data.Forums
                 
             });
-            //console.log(forumData);
             data.Forums.forEach(forum => {
                 idbPromise('forum', 'put', forum);
               });
@@ -41,29 +37,31 @@ const Forum = ({}) => {
     const handleClick = id => {
         dispatch({
             type: UPDATE_CURRENT_FORUM,
-            currentCategory: id
+            currentForum: {id}
         });
+       
     };
 
     return (
         <main>
             <div className='flex-row justify-space-between'>
                 <div>
-                   <h2>Choose your Dungeon...</h2>
-                   {forum.map(item => (
+                   <h2>Chose your dungeon</h2>
+                   {forum.map(forum => (
                     <button
-                    key={item._id}
+                    key={forum._id}
                     onClick={() => {
-                        handleClick(item._id);
+                        handleClick(forum._id);
                     }}
                     >
-                     {item.name}
+                     {forum.name}
                     </button>
                    ))}
                 </div>
                 
             </div>
-            <Footer/>
+
+            <Post/>
         </main>
     );
 };

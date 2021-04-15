@@ -1,23 +1,23 @@
 import gql from 'graphql-tag';
 
 export const QUERY_POSTS = gql`
-  query posts($userName: String) {
-    posts(userName: $userName) {
+  query posts($forum: ID) {
+    posts(forum: $forum) {
       _id
+      name
       postText
       createdAt
-      userName
-      replyCount
-      replies {
+      username
+      forum {
         _id
-        createdAt
-        userName
-        replyBody
-      }
-    }
-  }
+      } 
+     }
+   }
+  
 `;
-export const QUERY_ALL_POST = gql`
+
+
+/*export const QUERY_ALL_POST = gql`
   {
     posts {
       _id
@@ -29,7 +29,7 @@ export const QUERY_ALL_POST = gql`
       }
     }
   }
-`;
+`;*/
 export const QUERY_FORUM = gql`
  {
   Forums{
@@ -37,4 +37,19 @@ export const QUERY_FORUM = gql`
    name
  }
 }
+`;
+
+export const QUERY_POST = gql`
+  {
+    post{
+     _id
+     name
+     postText
+     createdAt
+     username
+     forum {
+       name
+     } 
+    }
+  }
 `;
