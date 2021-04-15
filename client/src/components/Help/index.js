@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
-//Add in utils folder later
+import Container from 'react-bootstrap/Container'
 import { validateEmail } from '../../utils/helpers';
-/* Select a font with group to match theme
-import '../../fonts/NewTegomin-Regular.ttf';*/
+
 
 function Help() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -38,8 +37,8 @@ function Help() {
   };
 
   return (
-    <section>
-      <h1 data-testid="h1tag">Need Help?</h1>
+    <Container center>
+      <h1>Need Help?</h1>
       <h4>Reach out to ask the Retro Raid Dev Team!</h4>
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
@@ -59,9 +58,9 @@ function Help() {
             <p className="error-text">{errorMessage}</p>
           </div>
         )}
-        <Button variant="outline-light" type="submit">Release the Electronic Carrier Pigeon!</Button>
+        <Button variant="outline-light" type="submit">Send Message!</Button>
       </form>
-    </section>
+    </Container>
   );
 }
 

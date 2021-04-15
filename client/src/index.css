@@ -2,7 +2,7 @@
 main {
 	margin: 0 auto;
 	max-width: 100%;
-  padding: 50px 30px;
+  padding: 50px 100px;
   
  
 }
@@ -114,8 +114,9 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 0 1px;
+  margin: 0 200px;
   background-color: var(--secondary);
+  width: 25%;
 }
 
 button:hover {
@@ -298,7 +299,7 @@ a {
 }
 
 .navActive {
-  color: var(--secondary);
+  color: whitesmoke;
 }
 
 .thumbnail-logo {

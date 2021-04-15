@@ -48,7 +48,7 @@ const Forum = ({}) => {
         <main>
             <div className='flex-row justify-space-between'>
                 <div>
-                   <h2>Chose your dungeon</h2>
+                   <h2>Choose your Dungeon...</h2>
                    {forum.map(item => (
                     <button
                     key={item._id}
