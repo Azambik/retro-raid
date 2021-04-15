@@ -65,7 +65,7 @@ function Help() {
             <p className="error-text">{errorMessage}</p>
           </div>
         )}
-        <Button variant="outline-light" type="submit">Send Message!</Button>
+        <Button variant="success" type="submit">Send Message!</Button>
       </form>
       </Row>
       <Footer/>
