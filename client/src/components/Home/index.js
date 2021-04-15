@@ -20,6 +20,7 @@ function Home() {
                     <Col>
                         <div>
                             <p>Get ready to RAID! Create a character, jump into the verbal battlegrounds, and crawl those forum-dungeons!</p>
+                            <p>Retro raid is for all gamers that want to be part of a community of other like minded gamers to share their pasion, projects, mods or anything else relating to video games</p>
                         </div> 
                     </Col>
                 </Row>

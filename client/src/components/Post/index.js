@@ -45,16 +45,16 @@ const PostList = ({ }) => {
 //console.log(state);
   return (
     <div className="my-2">
-      <h2>Our Products:</h2>
+      <h2>Available dungeon!:</h2>
       {state.posts.length ? (
         <div className="flex-row">
             {filterPost().map(posts => (
-                <p>{posts.name}test</p>
+                <p>{posts.name}</p>
                 
             ))}
         </div>
       ) : (
-        <h3>You haven't selected a forum yet!</h3>
+        <h3>You haven't selected a dungeon yet!</h3>
       )}
       { loading ? 
       <img src={spinner} alt="loading" />: null}
