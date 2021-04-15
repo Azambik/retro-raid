@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Footer from '../Footer';
 
 const Signup = () => {
   // set initial form state
@@ -49,6 +50,7 @@ const Signup = () => {
   };
 
   return (
+    <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
@@ -97,6 +99,8 @@ const Signup = () => {
           Create and Raid!
         </Button>
       </Form>
+      <Footer/>
+      </>
   );
 };
 

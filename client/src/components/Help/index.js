@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import { validateEmail } from '../../utils/helpers';
+import Footer from '../Footer';
 
 
 function Help() {
@@ -67,6 +68,7 @@ function Help() {
         <Button variant="outline-light" type="submit">Send Message!</Button>
       </form>
       </Row>
+      <Footer/>
     </Container>
   );
 }

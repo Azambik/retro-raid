@@ -34,7 +34,7 @@ function Header({ currentPage, setCurrentPage }) {
                 </Overlay>
                 <Navbar.Brand href="/">RETRO RAID</Navbar.Brand>
                 { pages.map( link =>(
-                    <Nav.Link className={`${currentPage === link && 'navActive'}`} key={link}>
+                    <Nav.Link className={`${currentPage === link && 'navActive'}`}  key={link}>
                         <span onClick={() => setCurrentPage(link)} >{link}</span>
                     </Nav.Link>
                 ))}

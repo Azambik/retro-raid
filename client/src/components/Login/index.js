@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Footer from '../Footer';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -50,7 +51,7 @@ const LoginForm = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Character not found!
         </Alert>
-        <Form.Group className="formbox">
+        <Form.Group>
           <Form.Label htmlFor='email'>Your Character</Form.Label>
           <Form.Control
             type='text'
@@ -62,7 +63,7 @@ const LoginForm = () => {
           />
         </Form.Group>
 
-        <Form.Group className="formbox">
+        <Form.Group>
           <Form.Label htmlFor='password'>Your Password</Form.Label>
           <Form.Control
             type='password'
@@ -80,7 +81,9 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
+      <Footer/>
     </>
+    
   );
 };
 

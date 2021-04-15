@@ -5,6 +5,7 @@ import { QUERY_FORUM } from '../utils/queries';
 import { UPDATE_FORUM, UPDATE_CURRENT_FORUM } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
+import Footer from '../components/Footer';
 
 const Forum = ({}) => {
     const [state, dispatch] = useStoreContext();
@@ -62,6 +63,7 @@ const Forum = ({}) => {
                 </div>
                 
             </div>
+            <Footer/>
         </main>
     );
 };
