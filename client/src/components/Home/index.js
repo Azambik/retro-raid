@@ -3,6 +3,7 @@ import React from 'react';
 //import Image from 'react-bootstrap/Image'
 //import RRLogo for jumbotron
 import {Container, Row, Col, Image } from 'react-bootstrap';
+import Footer from '../Footer';
 
 
 function Home() {
@@ -14,9 +15,6 @@ function Home() {
                     <Col>
                         <h1>RETRO RAID</h1>
                     </Col>
-                    <Col>
-                        <Image></Image>
-                    </Col>
                 </Row>
                 <Row>
                     <Col>
@@ -25,8 +23,7 @@ function Home() {
                         </div> 
                     </Col>
                 </Row>
-                <Row>
-                </Row>
+                <Footer></Footer>
             </Container>
         </section>
     );

@@ -109,7 +109,7 @@ const seedForum = async function() {
       name: 'Hardware/Mods'
     },
     {
-      name: 'Hardware/Mods'
+      name: 'Reproductions'
     },
     {
       name: 'Game Journal'

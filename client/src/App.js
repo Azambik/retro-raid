@@ -62,8 +62,7 @@ function App() {
         />
         <main>
           { renderPage(currentPage) }
-        </main>
-        <Footer/>    
+        </main>  
         </StoreProvider>
     </ApolloProvider>  
   );

@@ -11,7 +11,6 @@ type User {
     token: ID
     user: User
   }
-
 type Forum {
   _id: ID
   name: String

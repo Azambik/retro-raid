@@ -9,7 +9,7 @@ function Footer() {
     //we make up to have people tweet out about us!
     return (
         <Container>
-            <Row>
+            <Row className="socialmedia">
                 <Col>
                 <a href="https://www.twitter.com/RR_Dev_Team">
                     <img className="thumbnail-logo" 

@@ -60,6 +60,7 @@ const Forum = ({}) => {
                 </div>
                 
             </div>
+
             <Post/>
         </main>
     );
