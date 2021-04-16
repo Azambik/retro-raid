@@ -13,7 +13,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "heroku-postbuild": "cd client && npm run build",
     "seed": "node server/config/seeds.js",
-    "build": "./node_modules/.bin/webpack --config webpack.conf.js",
+    "build": "./node_modules/.bin/webpack --config webpack.conf.js"
   },
   "author": "",
   "license": "ISC",
