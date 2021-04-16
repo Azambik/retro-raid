@@ -1,8 +1,11 @@
 {
   "name": "retro-raid",
   "version": "1.0.0",
-  "description": "",
+  "description": "Video game forum",
   "main": "index.js",
+  "engines":{
+    "node": "14.x"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
