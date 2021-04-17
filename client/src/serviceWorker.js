@@ -2,7 +2,10 @@ const APP_PREFIX = 'RetroRaid-';
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
-  "../src/post.js"
+  "/",
+  "../public/index.html",
+  "/assets/logo/retroraiderlogo.jpg",
+  "/components/home/index.js"
 ];
 
 // Respond with cached resources
