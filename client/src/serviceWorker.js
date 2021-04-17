@@ -1,8 +1,8 @@
-/*const APP_PREFIX = 'RetroRaid-';     
+const APP_PREFIX = 'RetroRaid-';     
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
-  "/"
+  "../src/post.js"
 ];
 
 // Respond with cached resources
@@ -54,4 +54,4 @@ window.self.addEventListener('activate', function (e) {
       }));
     })
   );
-});*/
+});
