@@ -21,11 +21,11 @@ const resolvers ={
         Forums: async () => {
            return await Forum.find()
         },
-        posts: async (parent, { Forum, name }) => {
+        posts: async (parent, { forum, name }) => {
           const params = {};
     
-          if (Forum) {
-            params.Forum = Forum;
+          if (forum) {
+            params.forum = forum;
           }
     
           if (name) {

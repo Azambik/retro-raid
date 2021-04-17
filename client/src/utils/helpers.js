@@ -13,7 +13,7 @@ export function validateEmail(email) {
       request.onupgradeneeded = function(e) {
         const db = request.result;
         // creating object store for data and set 'primary' key index to be the '-id' of the data
-        db.createObjectStore('posts', {KeyPath: '_id'});
+        db.createObjectStore('posts', {keyPath: '_id'});
         db.createObjectStore('forum', {keyPath: '_id'});
       };
       request.onerror = function(e){
@@ -23,7 +23,7 @@ export function validateEmail(email) {
           //save a reference of the database to the 'db' variable
           db = request.result;
           // open a transaction to do whatever we pass into ' storeName' ( must match one of the object store names)
-          console.log(storeName);
+         // console.log(storeName);
           tx = db.transaction(storeName, 'readwrite');
           //save a reference to the object store
           store = tx.objectStore(storeName);
