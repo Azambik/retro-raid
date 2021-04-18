@@ -91,7 +91,7 @@ const Signup = () => {
             required
           />
         </Form.Group>
-        <Button
+        <Button className="submitbutton"
           disabled={!(userFormData.userName && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'
