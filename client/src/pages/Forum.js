@@ -52,16 +52,18 @@ const Forum = ({}) => {
                     key={forum._id}
                     onClick={() => {
                         handleClick(forum._id);
+                        
                     }}
                     >
                      {forum.name}
                     </button>
                    ))}
+                   <Post/>
                 </div>
                 
             </div>
 
-            <Post/>
+            
         </main>
     );
 };
