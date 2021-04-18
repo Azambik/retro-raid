@@ -8,7 +8,7 @@ import spinner from "../../assets/spinner.gif"
 //import ForumItem from '../ForumItem';
 
 
-const PostList = ({ }) => {
+const PostList = ({ posts }) => {
   const [state, dispatch] = useStoreContext();
   const { currentForum } = state;
   const { loading, data } = useQuery(QUERY_POSTS);

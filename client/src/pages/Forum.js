@@ -8,7 +8,7 @@ import { idbPromise } from "../utils/helpers";
 import Post from '../components/Post'; 
 
 
-const Forum = ({}) => {
+const Forum = ({ PostList }) => {
     const [state, dispatch] = useStoreContext();
     const { forum } = state;
     const { loading, data } = useQuery(QUERY_FORUM);
