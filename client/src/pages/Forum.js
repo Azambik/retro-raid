@@ -46,7 +46,7 @@ const Forum = ({ PostList }) => {
         <main>
             <div className='flex-row justify-space-between'>
                 <div>
-                   <h2>Chose your dungeon</h2>
+                   <h2>Gear up ⚔️🛡️ and choose your dungeon!</h2>
                    {forum.map(forum => (
                     <button
                     key={forum._id}

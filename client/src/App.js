@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import Header from './components/Header' 
+=======
+import Header from './components/Header'
+//import Footer from './components/Footer' 
+>>>>>>> main
 import Home from './components/Home';
 import Forum from './pages/Forum.js';
 import Signup from './components/Signup';
