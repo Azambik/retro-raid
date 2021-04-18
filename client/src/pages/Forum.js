@@ -9,7 +9,7 @@ import Post from '../components/Post';
 import { Container } from 'react-bootstrap';
 
 
-const Forum = ({ PostList }) => {
+const Forum = () => {
     const [state, dispatch] = useStoreContext();
     const { forum } = state;
     const { loading, data } = useQuery(QUERY_FORUM);
@@ -52,13 +52,14 @@ const Forum = ({ PostList }) => {
                     key={forum._id}
                     onClick={() => {
                         handleClick(forum._id);
+                        
                     }}
                     >
                      {forum.name}
                     </button>
                    ))}
+                   <Post/>
                 </div>
-            <Post/>
         </Container>
     );
 };

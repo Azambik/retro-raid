@@ -4,16 +4,15 @@ import { idbPromise } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/Globalstate';
 import { QUERY_POSTS } from '../../utils/queries';
 import { UPDATE_POST } from '../../utils/actions';
-import spinner from "../../assets/spinner.gif"
-//import ForumItem from '../ForumItem';
-
 
 const PostList = ({ posts }) => {
   const [state, dispatch] = useStoreContext();
   const { currentForum } = state;
   const { loading, data } = useQuery(QUERY_POSTS);
- console.log(currentForum);
- console.log(data);
+ //console.log(currentForum);
+ //console.log(data.posts[0].forum._id);
+ //console.log(state)
+ //console.log(currentForum);
   useEffect(() => {
     //console.log(data);
     if (data) {
@@ -21,6 +20,7 @@ const PostList = ({ posts }) => {
         type: UPDATE_POST,
         posts: data.posts
       });
+      //console.log(data);
       data.posts.forEach((posts) => {
         idbPromise('posts', 'put', posts);
       });
@@ -36,28 +36,24 @@ const PostList = ({ posts }) => {
   }, [data, loading, dispatch]);
 
   function filterPost(){
-    if (!currentForum) {
-      return state.posts
+    let posts = state.posts;
+   // console.log(posts[0].forum._id)
+  //  console.log(currentForum.id);
+    if (currentForum) {
+      posts = posts.filter(post => post.forum._id == currentForum.id);
+    //  console.log(posts)
     }
-    return state.posts.filter(posts => posts.forum._id === currentForum);
+//console.log(posts) // confirm it made it this far with data. Otherwise currentForm and posts.forum._id might not actually match like we think.
+    return posts.map(post => (<p key={post._id}>{post.name}</p>))
   }
-  console.log(state)
 //console.log(state);
   return (
     <div className="my-2">
-      <h2>Available dungeons:</h2>
-      {state.posts.length ? (
+      <h2>Available dungeon!:</h2>
         <div className="flex-row">
-            {filterPost().map(posts => (
-                <p>{posts.name}</p>
-                
-            ))}
+            {filterPost()}
         </div>
-      ) : (
-        <h3>You haven't selected a dungeon yet!</h3>
-      )}
-      { loading ? 
-      <img src={spinner} alt="loading" />: null}
+     
     </div>
   );
 }
