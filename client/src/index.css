@@ -118,7 +118,7 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 200px;
-  background-color: var(--secondary);
+  background-color: var(--dark);
   width: 25%;
 }
 
@@ -321,9 +321,14 @@ a {
 }
 
 .formbox {
-  display: flex;
+  display: block;
   justify-content: center;
   width: 100%;
+}
+
+.submitbutton {
+  justify-content: center;
+  display: flex;
 }
 
 .socialmedia {

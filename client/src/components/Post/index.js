@@ -45,7 +45,7 @@ const PostList = ({ posts }) => {
 //console.log(state);
   return (
     <div className="my-2">
-      <h2>Available dungeon!:</h2>
+      <h2>Available dungeons:</h2>
       {state.posts.length ? (
         <div className="flex-row">
             {filterPost().map(posts => (

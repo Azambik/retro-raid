@@ -6,6 +6,7 @@ import { UPDATE_FORUM, UPDATE_CURRENT_FORUM } from '../utils/actions';
 import {useStoreContext } from  '../utils/Globalstate';
 import { idbPromise } from "../utils/helpers";
 import Post from '../components/Post'; 
+import { Container } from 'react-bootstrap';
 
 
 const Forum = ({ PostList }) => {
@@ -43,8 +44,7 @@ const Forum = ({ PostList }) => {
     };
 
     return (
-        <main>
-            <div className='flex-row justify-space-between'>
+        <Container fluid>
                 <div>
                    <h2>Gear up ⚔️🛡️ and choose your dungeon!</h2>
                    {forum.map(forum => (
@@ -58,11 +58,8 @@ const Forum = ({ PostList }) => {
                     </button>
                    ))}
                 </div>
-                
-            </div>
-
             <Post/>
-        </main>
+        </Container>
     );
 };
 
