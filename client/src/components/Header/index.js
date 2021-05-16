@@ -13,7 +13,8 @@ function Header({ currentPage, setCurrentPage }) {
         'Forum',
         'New Character',
         'Sign In',
-        'Help!'
+        'Help!',
+        'DisplayPost'
     ];
     
     useEffect(() => {
