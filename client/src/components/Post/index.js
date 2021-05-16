@@ -7,6 +7,7 @@ import { UPDATE_POST } from '../../utils/actions';
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import DisplayPost from '../DisplayPost'
 import Modal from 'react-modal';
+import { POST_OPEN, POST_CLOSED } from '../../utils/actions';
 
 const customStyles = {
   content : {
@@ -24,19 +25,29 @@ const customStyles = {
 const PostList = () => {
    
   const [state, dispatch] = useStoreContext();
-  const { currentForum } = state;
+  const { currentForum, displayPost } = state;
   const { loading, data } = useQuery(QUERY_POSTS);
   const [modalIsOpen,setIsOpen] = React.useState(false);
 
   function openModal() {
-    setIsOpen(true);
+    dispatch({
+      type: POST_OPEN,
+      currentForum: true
+  });
+    console.log(displayPost);
+   // setIsOpen(true);
   }
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
    
   }
   function closeModal(){
-    setIsOpen(false);
+    dispatch({
+      type: POST_CLOSED,
+      currentForum: false
+  });
+    console.log(displayPost);
+   // setIsOpen(false);
   }
  //console.log(currentForum);
  //console.log(data.posts[0].forum._id);

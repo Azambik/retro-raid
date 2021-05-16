@@ -7,7 +7,9 @@ import{
     UPDATE_REPLY,
     DELETE_REPLY,
     UPDATE_FORUM,
-    UPDATE_CURRENT_FORUM
+    UPDATE_CURRENT_FORUM,
+    POST_OPEN,
+    POST_CLOSED
 } from './actions';
 
 export const reducer = (state, action) => {
@@ -27,6 +29,16 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 posts: [...action.posts]
+            };
+        case POST_OPEN:
+            return{
+                ...state,
+                displayPost: true
+            };
+        case POST_CLOSED:
+            return{
+                ...state,
+                displayPost: false
             }
     
         //if it's none of these actions, do not update state at all and keep things the same!

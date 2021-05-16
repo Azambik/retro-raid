@@ -9,7 +9,8 @@ const StoreProvider = ({ value = [], ...props }) => {
         //get things that need to be monitored for change and make a default array for them. 
         forum: [],
         posts: [],
-        currentForum: ''
+        currentForum: '',
+        displayPost: false
         
     })
     // used to confirm if working
